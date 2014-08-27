@@ -2,6 +2,6 @@
 
 <ol>
   <% @posts.each do |post| %>
-    <li><a href="<%= post.link %>"><%= post.title %></a><span class="small-link">(<%= post.link %>)</span></li>
+    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span></li>
   <% end %>
 </ol>
