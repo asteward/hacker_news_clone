@@ -1,7 +1,7 @@
 <h1>Hacker News</h1>
-
+<% ranked = @posts.sort_by { |post| post.votes.length }.reverse %>
 <ol>
-  <% @posts.each do |post| %>
-    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes.length %> - <a href="/posts/<%= post.id %>/votes" data-method="create"><button class="btn btn-success">Vote</button></a></li>
+  <% ranked.each do |post| %>
+    <li><a href="<%= post.link %>"><button class="btn"><%= post.title %></button></a><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes.length %> - <a href="/posts/<%= post.id %>/votes" data-method="create"><button>Vote</button></a></li>
   <% end %>
 </ol>

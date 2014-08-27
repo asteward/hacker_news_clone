@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @vote = Vote.new
-    @posts = Post.order(:rank)
+    @posts = Post.all
   end
 
   def new

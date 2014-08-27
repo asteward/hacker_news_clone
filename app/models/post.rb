@@ -2,11 +2,11 @@ class Post < ActiveRecord::Base
   has_many :votes
   validates :title, presence: true
   validates :link, presence: true
-  after_touch :adjust_rank
+  before_create :set_rank
 
-private
-
-  def adjust_rank
-    self.rank = self.votes.length
+  def self.adjust_rank
+    Post.all.each do |post|
+      post.rank = post.votes.length
+    end
   end
 end
