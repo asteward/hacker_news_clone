@@ -2,6 +2,8 @@
 <% ranked = @posts.sort_by { |post| post.votes.length }.reverse %>
 <ol>
   <% ranked.each do |post| %>
-    <li><a href="<%= post.link %>"><button class="btn"><%= post.title %></button></a><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes.length %> - <a href="/posts/<%= post.id %>/votes" data-method="create"><button>Vote</button></a></li>
+    <li><a href="<%= post.link %>"><button class="btn"><%= post.title %></button></a><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes.length %> votes - <a href="/posts/<%= post.id %>/votes" data-method="create"><button>Vote</button></a></li>
   <% end %>
 </ol>
+
+<p><%= link_to "Add Post", new_post_path, class: "btn btn-info" %></p>
