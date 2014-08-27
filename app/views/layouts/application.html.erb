@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <%= yield %>
+    <hr>
+    <%= link_to "Home", posts_path, class: "btn btn-danger btn-sm" %>
+  </div>
 </body>
 </html>
