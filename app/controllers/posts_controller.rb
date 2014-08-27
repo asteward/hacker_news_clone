@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @vote = Vote.new
     @posts = Post.order(:rank)
   end
 
@@ -15,6 +16,10 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def update

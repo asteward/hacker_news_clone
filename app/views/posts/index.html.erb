@@ -2,13 +2,6 @@
 
 <ol>
   <% @posts.each do |post| %>
-    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes %></li>
-
-    <form action="/posts/<%= post.id %>" method="post">
-      <input name="_method" type="hidden" value="patch">
-      <input type="hidden" name="post[votes]" value="<%= post.votes + 1 %>">
-      <button type="submit">upVote</button>
-    </form>
-    
+    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes.length %> - <a href="/posts/<%= post.id %>/votes" data-method="create"><button>Vote</button></a></li>
   <% end %>
 </ol>
