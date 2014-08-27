@@ -2,6 +2,9 @@
 
 <ol>
   <% @posts.each do |post| %>
-    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span></li>
+    <li><button class="btn"<a href="<%= post.link %>"><%= post.title %></a></button><span class="small-link"> - (<%= post.link %>)</span> - <%= post.votes %></li>
+    <form action="" method="post">
+      <button type="submit">upVote</button>
+    </form>
   <% end %>
 </ol>

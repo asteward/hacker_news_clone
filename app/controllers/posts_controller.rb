@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(:rank)
   end
 
   def new
@@ -17,8 +17,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.upvote
+    flash[:notice] = "#{@post.title} upvoted!"
+    redirect_to posts_path
+  end
+
 private
   def post_params
-    params.require(:post).permit(:title, :link)
+    params.require(:post).permit(:title, :link, :votes)
   end
 end
