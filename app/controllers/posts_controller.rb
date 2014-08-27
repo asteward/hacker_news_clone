@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.upvote
+    @post.update(post_params)
     flash[:notice] = "#{@post.title} upvoted!"
     redirect_to posts_path
   end
