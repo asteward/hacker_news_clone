@@ -1,1 +1,12 @@
 <h2><%= @post.title %></h2>
+
+<%= link_to "Comment", new_post_comment_path(@post), class: "btn btn-warning btn-lg" %>
+
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.content %>
+      <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-warning btn-sm" %>
+    </li>
+  <% end %>
+</ul>
