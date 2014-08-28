@@ -1,5 +1,6 @@
 <h2>Links-</h2>
 <% ranked = @posts.sort_by { |post| post.votes.length }.reverse %>
+
 <ol>
   <% ranked.each do |post| %>
     <li>
