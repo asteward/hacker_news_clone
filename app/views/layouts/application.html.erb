@@ -8,12 +8,10 @@
 </head>
 <body>
   <div class="jumbotron">
-    <h1>Hacker News Clone</h1>
+    <h1><%= link_to "Hacker News Clone", posts_path, id: "home-link" %></h1>
   </div>
   <div class="container">
     <%= yield %>
-    <hr>
-    <%= link_to "Home", posts_path, class: "btn btn-danger btn-sm" %>
   </div>
 </body>
 </html>
