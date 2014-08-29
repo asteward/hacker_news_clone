@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
       flash[:notice] = "<strong>Hey, #{user.username}!</strong> Check out our cool new posts!".html_safe
       redirect_to users_path
     else
-      flash.now.alert = "Username or password is invalid."
+      flash.now.alert = "<strong>Hey, now -</strong> Check that username and password again.".html_safe
+      render 'new'
     end
   end
 
