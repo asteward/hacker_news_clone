@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_filter :authorize, only: [:new, :create]
+
   def index
     @comment = Comment.all
   end
@@ -17,10 +20,6 @@ class CommentsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
   end
 
   private
