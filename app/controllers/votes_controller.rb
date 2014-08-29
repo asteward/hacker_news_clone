@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_filter :authorize
   def create
     @post = Post.find(params[:post_id])
     @vote = @post.votes.new
