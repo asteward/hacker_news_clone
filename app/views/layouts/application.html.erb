@@ -9,7 +9,7 @@
 <body>
   <% if flash[:notice] %>
     <div class="alert alert-success" role="alert">
-      <%= flash[:notice] %>
+      <%= flash[:notice].html_safe %>
     </div>
   <% end %>
   <% if flash[:alert] %>
