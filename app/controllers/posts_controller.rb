@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  # before_filter :authorize, only: [:new, :create, :update]
+
   def index
     @vote = Vote.new
     @posts = Post.all
@@ -20,13 +23,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end
-
-  def update
-    @post = Post.find(params[:id])
-    @post.update(post_params)
-    flash[:notice] = "#{@post.title} upvoted!"
-    redirect_to posts_path
   end
 
 private
