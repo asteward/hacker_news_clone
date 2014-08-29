@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'autoprefixer-rails'
+gem 'bcrypt'
 
 group :development do
   gem 'better_errors'
