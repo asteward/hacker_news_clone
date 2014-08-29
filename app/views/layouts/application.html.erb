@@ -14,7 +14,7 @@
   <% end %>
   <% if flash[:alert] %>
     <div class="alert alert-danger" role="alert">
-      <%= flash[:alert] %>
+      <%= flash[:alert].html_safe %>
     </div>
   <% end %>
   <div class="jumbotron">

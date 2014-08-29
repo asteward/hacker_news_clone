@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  # before_filter :authorize, only: [:new, :create, :update]
+  before_filter :authorize, only: [:new, :create]
 
   def index
     @vote = Vote.new
