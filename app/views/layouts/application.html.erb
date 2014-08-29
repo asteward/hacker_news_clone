@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
   <div class="jumbotron">
     <h1><%= link_to "Hacker News Clone", posts_path, id: "home-link" %></h1>
   </div>
