@@ -1,6 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(to bottom, #f4f4f4 0%,#ffffff 100%);
+  height: 100%;
+}
+
 h2.sub-title {
   color: #5E5E5E;
   text-shadow: 0px 1px #B8B8B8, 0px 2px #D9D9D9, 0px 3px #F5F5F5;
@@ -14,18 +23,48 @@ h2.sub-title {
   box-shadow: 0px 1px 2px #B8B8B8;
 }
 
+.btn.add {
+  background-color: #a5c956;
+  color: white;
+}
+
+.btn.add:hover {
+  background-color: #98BA4E;
+  color: white;
+}
+
+.btn.posted {
+  background-color: #C9A455;
+  color: white;
+}
+
+.btn.voter {
+  background-color: #C76354;
+  color:white;
+}
+
+.btn.voter:hover {
+  background-color: #B85B4D;
+  color:white;
+}
+
+.btn.posted:hover {
+  background-color: #BA984E;
+  color: white;
+}
+
 li {
   padding-bottom: 5px;
 }
 
 .jumbotron {
   text-align: center;
-  background: linear-gradient(#E5E5E5, #B9B9B9);
+  background: linear-gradient(to bottom, #cdeb8e 0%,#a5c956 100%);
   box-shadow: 0px 1px 10px #C9C9C9;
 }
 
 .jumbotron h1 {
-  text-shadow: 0px -1px #ABABAB, -1px 0px #ABABAB, 1px 0px #ABABAB, 0px .01em 0px #dededa,
+  text-shadow: 0px -1px #A1D15A, -1px 0px #A1D15A, 1px 0px #A1D15A, 0px .01em 0px #dededa,
                0 .015em 0 #dededa, 0 .02em 0 #dededa, 0 .028em 0 #dededa,
                0 .035em 0 #dededa, 0 .04em 0 #dededa, 0 .045em 0 #dbdbd6,
                0 .055em 0 #dbdbd6, 0 .06em 0 #dbdbd6, 0 .065em 0 #d9d9d4,
@@ -40,6 +79,6 @@ li {
 }
 
 #home-link:hover {
-  color: #F7F7F7;
+  color: #F1F5EB;
   text-decoration: none;
 }

@@ -4,13 +4,13 @@
 <ol>
   <% ranked.each do |post| %>
     <li>
-      <a href="<%= post.link %>"><button class="btn btn-primary"><%= post.title %></button></a>
+      <a href="<%= post.link %>"><button class="btn posted"><%= post.title %></button></a>
       <span class="small-link"> - (<%= post.link %>)</span> -
       <%= post.votes.length %> votes -
-      <a href="/posts/<%= post.id %>/votes" data-method="create"><button class="btn btn-info btn-sm">Vote</button></a>
+      <a href="/posts/<%= post.id %>/votes" data-method="create"><button class="btn voter btn-sm">Vote</button></a>
       <%= link_to "Read Comments", post_path(post), class: "btn btn-default btn-sm" %>
     </li>
   <% end %>
 </ol>
 
-<p><%= link_to "Add Post", new_post_path, class: "btn btn-success" %></p>
+<p><%= link_to "Add Post", new_post_path, class: "btn add" %></p>
