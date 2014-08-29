@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Thanks for signing up, <strong>#{@user.username}!</strong>".html_safe
       redirect_to posts_path
     else
+      flash[:alert] = "<strong>Whoa!</strong> Let's take another look...".html_safe
       render "new"
     end
   end
