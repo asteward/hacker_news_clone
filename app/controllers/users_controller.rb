@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       redirect_to posts_path
     else
       flash[:alert] = "<strong>Whoa!</strong> Let's take another look...".html_safe
-      render "new"
+      render 'new'
     end
   end
 
