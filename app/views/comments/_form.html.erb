@@ -1,7 +1,6 @@
-<%= form_for(@comment) do |f| %>
-  <%= f.hidden_field(:post_id, :value => "#{@comment.post_id}") %>
+<%= form_for [@post, @comment] do |f| %>
   <div class="form-group">
-    <%= f.label :content %>
+    <p><%= f.label :content %>:</p>
     <%= f.text_area :content, :rows => 5, :placeholder => "Comments..." %>
   </div>
   <%= f.submit(class: "btn add") %>
