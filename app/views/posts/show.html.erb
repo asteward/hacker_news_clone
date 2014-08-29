@@ -3,7 +3,7 @@
 <ul class="list-group">
   <% @post.comments.each do |comment| %>
     <li class="list-group-item">
-      <%= comment.content %>
+      <%= User.find(comment.user_id).username %>: <%= comment.content %>
     </li>
   <% end %>
 </ul>
