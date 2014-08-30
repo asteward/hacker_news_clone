@@ -10,6 +10,7 @@
     </div>
   <% end %>
   <div class="form-group">
+    <%= f.hidden_field :user_id, value: @user.id %>
     <p><%= f.label :content %></p>
     <%= f.text_area :content, :rows => 5, :placeholder => "Comments..." %>
   </div>
