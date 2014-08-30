@@ -9,6 +9,7 @@
       <%= link_to "upVote <strong>| #{post.votes.length}</strong>".html_safe,
       post_votes_path(post), data: {method: "post"}, class: "btn voter btn-sm" %>
       <%= link_to "Read Comments", post_path(post), class: "btn btn-default btn-sm" %>
+      - Posted by <%= User.find(post.user_id).username %>
     </li>
   <% end %>
 </ol>
