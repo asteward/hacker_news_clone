@@ -1,4 +1,5 @@
-<h2 class="list-group-item active"><%= @post.title %></h2>
+<h2 class="list-group-item active"><%= @post.title %>
+  <span class="smallish"> - <%= User.find(@post.user_id).username %></span></h2>
 
 <ul class="list-group">
   <% @post.comments.each do |comment| %>
@@ -8,4 +9,4 @@
   <% end %>
 </ul>
 
-<%= link_to "Comment", new_post_comment_path(@post), class: "btn btn-warning btn-lg" %>
+<%= link_to "Comment", new_user_post_comment_path(@post.user, @post), class: "btn btn-warning btn-lg" %>

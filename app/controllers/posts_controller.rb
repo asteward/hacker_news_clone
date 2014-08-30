@@ -3,16 +3,18 @@ class PostsController < ApplicationController
   before_filter :authorize, only: [:new, :create]
 
   def index
+    @user = current_user
     @vote = Vote.new
     @posts = Post.all
   end
 
   def new
-    @post = Post.new
+    @user = current_user
+    @post = @user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       flash[:notice] = "Post created."
       redirect_to posts_path
