@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :sessions
+  resources :posts, only: :index do
+    resources :votes
+  end
+
   resources :users do
-    resources :posts do
-      resources :votes
+    resources :posts, except: :index do
       resources :comments
     end
   end
