@@ -4,7 +4,6 @@ class VotesController < ApplicationController
     @post = Post.find(params[:post_id])
     @vote = @post.votes.new
     if @vote.save
-      flash[:notice] = "Post upvoted."
       redirect_to posts_path
     else
       render 'new'

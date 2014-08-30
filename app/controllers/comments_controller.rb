@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
 
   before_filter :authorize, only: [:new, :create]
 
-  def index
-    @comment = Comment.all
-  end
-
   def new
     @user = current_user
     @post = Post.find(params[:post_id])
@@ -23,7 +19,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
+private
   def comment_params
     params.require(:comment).permit(:content, :post_id, :user_id)
   end
