@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HackerNews</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if flash[:notice] %>
-    <div class="alert alert-success" role="alert">
-      <%= flash[:notice].html_safe %>
+  <head>
+    <title>HackerNews</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice].html_safe %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:alert].html_safe %>
+      </div>
+    <% end %>
+    <div class="jumbotron">
+      <h1><%= link_to "Hacker News Clone", posts_path, id: "home-link" %></h1>
     </div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div class="alert alert-danger" role="alert">
-      <%= flash[:alert].html_safe %>
+    <div class="container">
+      <%= yield %>
     </div>
-  <% end %>
-  <div class="jumbotron">
-    <h1><%= link_to "Hacker News Clone", posts_path, id: "home-link" %></h1>
-  </div>
-  <div class="container">
-    <%= yield %>
-  </div>
 
-  <hr>
+    <hr>
 
-  <% if current_user %>
-    Logged in as <strong><%= current_user.username %>.</strong>
-    <%= link_to "Log Out", logout_path("current"), method: "get", class: "btn voter" %>
-  <% else %>
-    <%= link_to "Sign Up", signup_path, class: "btn add" %>
-    <%= link_to "Log In", login_path, class: "btn voter" %>
-  <% end %>
+    <% if current_user %>
+      <%= link_to "Log Out", logout_path("current"), method: "get", class: "btn voter" %>
+      Logged in as <strong><%= current_user.username %>.</strong>
+    <% else %>
+      <%= link_to "Sign Up", signup_path, class: "btn add" %>
+      <%= link_to "Log In", login_path, class: "btn voter" %>
+    <% end %>
 
-
-</body>
+  </body>
 </html>

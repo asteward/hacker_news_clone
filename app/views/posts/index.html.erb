@@ -6,14 +6,15 @@
     <li>
       <%= link_to "#{post.title}", post.link, class: "btn posted" %>
       <span class="small-link"> - (<%= post.link %>)</span> -
-
-      <%= form_for [@user, post, @vote] do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id %>
-        <button class="btn voter btn-sm" type="submit"> upVote <strong>| <%= post.votes.length %></strong></button>
-      <% end %>
-
       <%= link_to "Read Comments", user_post_path(post.user_id, post), class: "btn btn-default btn-sm" %>
       - Posted by <%= User.find(post.user_id).username %>
+      <% if @user %>
+        <%= form_for [@user, post, @vote] do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <p><button class="btn voter btn-sm" type="submit"> upVote <strong>| <%= post.votes.length %></strong></button></p>
+        <% end %>
+      <% end %>
+      <hr>
     </li>
   <% end %>
 </ol>

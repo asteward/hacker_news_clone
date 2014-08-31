@@ -2,10 +2,5 @@ class Vote < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
 
-  before_create :one_vote
-
-private
-  def one_vote
-    
-  end
+  validates_uniqueness_of :user_id, scope: :post_id
 end

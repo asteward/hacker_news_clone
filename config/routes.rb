@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: :index
 
-  resources :users do
-    resources :posts, except: :index do
+  resources :users, only: [:new, :create] do
+    resources :posts, only: [:new, :create, :show] do
       resources :votes, only: :create
-      resources :comments
+      resources :comments, only: [:new, :create]
     end
   end
 end
