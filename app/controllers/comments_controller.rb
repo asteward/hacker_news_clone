@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     if @comment.save
-      flash[:notice] = "Comment added."
       redirect_to user_post_path(@post.user, @post)
     else
-      render 'new'
+      flash[:alert] = "<strong>Oops!</strong> Don't forget to actually type in a comment."
+      redirect_to user_post_path(@post.user, @post)
     end
   end
 
