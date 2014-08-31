@@ -6,8 +6,12 @@
     <li>
       <%= link_to "#{post.title}", post.link, class: "btn posted" %>
       <span class="small-link"> - (<%= post.link %>)</span> -
-      <%= link_to "upVote <strong>| #{post.votes.length}</strong>".html_safe,
-      user_post_votes_path(@user, post), data: {method: "post"}, class: "btn voter btn-sm" %>
+
+      <%= form_for [@user, post, @vote] do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+        <button class="btn voter btn-sm" type="submit"> upVote <strong>| <%= post.votes.length %></strong></button>
+      <% end %>
+
       <%= link_to "Read Comments", user_post_path(post.user_id, post), class: "btn btn-default btn-sm" %>
       - Posted by <%= User.find(post.user_id).username %>
     </li>
