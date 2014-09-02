@@ -12,7 +12,7 @@ describe "the signin process" do
 
   it "gives a user an error who uses the wrong password" do
     visit '/sessions/new'
-    user = User.create(:username => 'test', :password => 'password')
+    user = User.create(username: 'test', password: 'password')
     fill_in 'Username', with: 'test'
     fill_in 'Password', with: 'wrong'
     click_button 'Log In'
