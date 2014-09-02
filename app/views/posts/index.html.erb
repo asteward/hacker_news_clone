@@ -11,7 +11,7 @@
       <% if @user %>
         <%= form_for [@user, post, @vote] do |f| %>
           <%= f.hidden_field :user_id, value: @user.id %>
-          <p><button class="btn voter btn-sm" type="submit"> upVote <strong>| <%= post.votes.length %></strong></button></p>
+          <p><button class="btn voter btn-sm" type="submit" value="Vote"> upVote <strong>| <%= post.votes.length %></strong></button></p>
         <% end %>
       <% end %>
       <hr>
