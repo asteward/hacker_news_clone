@@ -10,6 +10,6 @@ describe "voting for a post" do
     click_button 'Log In'
     visit '/posts'
     click_button 'Vote'
-    page.should have_content 'upVote |'
+    expect(page).to have_content 'upVote | 1'
   end
 end
